@@ -23,7 +23,7 @@ function displayTime(t) {
 }
 
 exports.commands = {
-	'!ontime': true,
+/*'!ontime': true,
 	nolife: 'ontime',
 	userontime: 'ontime',
 	ontime: function (target, room, user) {
@@ -69,5 +69,5 @@ exports.commands = {
 			};
 		});
 		this.sendReplyBox(rankLadder('Ontime Ladder', 'Total Ontime', keys, 'time'));
-	},
+	},*/
 };
