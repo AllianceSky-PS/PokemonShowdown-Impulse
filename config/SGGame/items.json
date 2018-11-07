@@ -264,7 +264,7 @@
         "slot": "medicine",
         "use": {
             "boostEv": "def",
-            "boostEvAmount": 10,
+            "boostEvAmmount": 10,
             "noBattle": true
         }
     },
@@ -274,7 +274,7 @@
         "slot": "medicine",
         "use": {
             "boostEv": "atk",
-            "boostEvAmount": 10,
+            "boosEvAmount": 10,
             "noBattle": true
         }
     },
@@ -707,7 +707,407 @@
             "triggerEvo": true
         }
     },
-    "thunderstone": {
+     "abomasite": {
+        "id": "abomasite",
+        "name": "Abomasite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "absolite": {
+        "id": "absolite",
+        "name": "Absolite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "aerodactylite": {
+        "id": "aerodactylite",
+        "name": "Aerodactylite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "aggronite": {
+        "id": "aggronite",
+        "name": "Aggronite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "alakazite": {
+        "id": "alakazite",
+        "name": "Alakazite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "altarianite": {
+        "id": "altarianite",
+        "name": "Altarianite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "ampharosite": {
+        "id": "ampharosite",
+        "name": "Ampharosite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "audinite": {
+        "id": "audinite",
+        "name": "audinite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "venusaurite": {
+        "id": "venusaurite",
+        "name": "Venusaurite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "tyranitarite": {
+        "id": "tyranitarite",
+        "name": "tyranitarite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "swampertite": {
+        "id": "swampertite",
+        "name": "Swampertite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "steelixite": {
+        "id": "steelixite",
+        "name": "Steelixite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "slowbronite": {
+        "id": "slowbronite",
+        "name": "Slowbronite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "sharpedonite": {
+        "id": "sharpedonite",
+        "name": "sharpedonite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "scizorite": {
+        "id": "scizorite",
+        "name": "Scizorite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "sceptilite": {
+        "id": "sceptilite",
+        "name": "Sceptilite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "salamencite": {
+        "id": "salamencite",
+        "name": "Salamencite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "banettite": {
+        "id": "banettite",
+        "name": "Banettite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "beedrillite": {
+        "id": "beedrillite",
+        "name": "beedrillite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "charizarditey": {
+        "id": "charizarditey",
+        "name": "Charizardite Y",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "charizarditex": {
+        "id": "charizarditex",
+        "name": "Charizardite X",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "lucarionite": {
+        "id": "lucarionite",
+        "name": "Lucarionite",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "redorb": {
+        "id": "redorb",
+        "name": "Red Orb",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "blueorb": {
+        "id": "blueorb",
+        "name": "Blue Orb",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "mewtwonitex": {
+        "id": "mewtwonitex",
+        "name": "Mewtwonite X",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "mewtwonitey": {
+        "id": "mewtwonitey",
+        "name": "Mewtwonite Y",
+        "slot": "items",
+        "use": {
+            "battleOnly": true
+        }
+    },
+    "blazikenite": {
+        "id": "blazikenitee",
+        "name": "blazikenite",
+        "slot": "items",
+        "use": {
+         "battleOnly": true
+        }
+   },
+   "cameruptite": {
+       "id": "cameruptite",
+       "name": "Cameruptite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "diancite": {
+       "id": "diancite",
+       "name": "Diancite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "galladite": {
+       "id": "galladite",
+       "name": "Galladite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "gengarite": {
+       "id": "gengarite",
+       "name": "Gengarite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "garchompite": {
+       "id": "garchompite",
+       "name": "Garchompite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "gardevoirite": {
+       "id": "gardevoirite",
+       "name": "Gardevoirite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "glalitite": {
+       "id": "glalitite",
+       "name": "Glalitite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "latiasite": {
+       "id": "latiasite",
+       "name": "Latiasite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "kangaskhanite": {
+       "id": "kangaskhanite",
+       "name": "Kangaskhanite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "houndoominite": {
+       "id": "houndoominite",
+       "name": "Houndoominite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "heracronite": {
+       "id": "heracronite",
+       "name": "Heracronite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "gyaradosite": {
+       "id": "gyaradosite",
+       "name": "Gyaradosite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "metagrossite": {
+       "id": "metagrossite",
+       "name": "Metagrossite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "medichamite": {
+       "id": "medichamite",
+       "name": "Medichamite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "mawilite": {
+       "id": "mawilite",
+       "name": "Mawilite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "manectite": {
+       "id": "manectite",
+       "name": "Manectite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "lopunnite": {
+       "id": "lopunnite",
+       "name": "Lopunnite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "latiosite": {
+       "id": "latiosite",
+       "name": "Latiosite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "blastoisinite": {
+       "id": "blastoisinite",
+       "name": "blastoisinite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "pinsirite": {
+       "id": "pinsirite",
+       "name": "pinsirite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "scizorite": {
+       "id": "scizorite",
+       "name": "scizorite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "sablenite": {
+       "id": "sablenite",
+       "name": "sablenite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "pidgeotite": {
+       "id": "pidgeotite",
+       "name": "pidgeotite",
+       "slot": "items",
+       "use": {
+         "battleOnly": true
+        }
+   },
+   "thunderstone": {
         "id": "thunderstone",
         "name": "Thunder Stone",
         "slot": "items",
@@ -787,6 +1187,150 @@
             "noBattle": true,
             "triggerEvo": true
         }
+    },
+    "firium Z": {
+     "id": "firium Z",
+     "name": "Firium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "wateriumz": {
+     "id": "wateriumz",
+     "name": "Waterium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "grassiumz": {
+     "id": "grassiumz",
+     "name": "Grassum Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "buginiumz": {
+     "id": "buginiumz",
+     "name": "Buginium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "ghostiumz": {
+     "id": "ghostiumz",
+     "name": "Ghostium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "psychiumz": {
+     "id": "psychiumz",
+     "name": "Psychium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "darkiniumz": {
+     "id": "darkiniumz",
+     "name": "Darkinium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "fairiumz": {
+     "id": "fairiumz",
+     "name": "Fairium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "steeliumz": {
+     "id": "steeliumz",
+     "name": "Steelium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "poisoniumz": {
+     "id": "poisoniumz",
+     "name": "Poisonium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "groundiumz": {
+     "id": "groundiumz",
+     "name": "Groundiumz",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "rockiumz": {
+     "id": "rockiumz",
+     "name": "Rockium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "flyiniumz": {
+     "id": "flyiniumz",
+     "name": "Flyinium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "electriumz": {
+     "id": "electriumz",
+     "name": "Electrium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "fightiniumz": {
+     "id": "fightiniumz",
+     "name": "Fightinium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "iciumz": {
+     "id": "iciumz",
+     "name": "Icium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "dragoniumz": {
+     "id": "dragoniumz",
+     "name": "Dragonium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
+    },
+    "normalium Z": {
+     "id": "normaliumz",
+     "name": "Normalium Z",
+     "slot": "items",
+     "use": {
+          "battleOnly": true
+         }
     },
      "linkcable": {
         "id": "linkcable",
