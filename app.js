@@ -109,8 +109,8 @@ global.serverName = Config.serverName;
 
 // Store data locally ( Disable local storage, If you want to use cloud storage. )
 const nef = require('nef');
-const nefFs = require('nef-fs');
-global.Db = nef(nefFs('./config/Db'));
+const nefFs = require('nef-mongo');
+global.Db = nef(nefFs('mongodb://AllianceSky-PS:7066091863@princesky-db-shard-00-00-gmww8.mongodb.net:27017,princesky-db-shard-00-01-gmww8.mongodb.net:27017,princesky-db-shard-00-02-gmww8.mongodb.net:27017/test?ssl=true&replicaSet=PrinceSky-Db-shard-0&authSource=admin&retryWrites=true'));
 
 // Sqlite3 Databse for REGIONS.
 global.sqlite3 = require('sqlite3');
