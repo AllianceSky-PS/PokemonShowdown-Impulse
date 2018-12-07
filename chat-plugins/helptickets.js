@@ -256,23 +256,37 @@ function notifyStaff(upper = false) {
 		if (a.open !== b.open) {
 			return (a.open ? -1 : 1);
 		} else if (a.open && b.open) {
+			if (!!a.claimed !== !!b.claimed) {
+				return (a.claimed ? 1 : -1);
+			}
 			return a.created - b.created;
 		}
 		return 0;
 	});
 	let count = 0;
+	let hiddenTicketUnclaimedCount = 0;
+	let hiddenTicketCount = 0;
 	let hasUnclaimed = false;
 	for (const key of keys) {
 		let ticket = tickets[key];
-		if (count >= 3) break;
 		if (!ticket.open) continue;
 		if (!upper !== !ticket.escalated) continue;
+		if (count >= 3) {
+			hiddenTicketCount++;
+			if (!ticket.claimed) hiddenTicketUnclaimedCount++;
+			continue;
+		}
 		const escalator = ticket.escalator ? Chat.html` (escalated by ${ticket.escalator}).` : ``;
 		const creator = ticket.claimed ? Chat.html`${ticket.creator}` : Chat.html`<strong>${ticket.creator}</strong>`;
 		const notifying = ticket.claimed ? `` : ` notifying`;
 		if (!ticket.claimed) hasUnclaimed = true;
 		buf += `<a class="button${notifying}" href="/help-${ticket.userid}" title="${ticket.claimed ? `Claimed by: ${ticket.claimed}` : `Unclaimed`}">Help ${creator}: ${ticket.type}${escalator}</a> `;
 		count++;
+	}
+	if (hiddenTicketCount > 0) {
+		const notifying = hiddenTicketUnclaimedCount > 0 ? ` notifying` : ``;
+		if (hiddenTicketUnclaimedCount > 0) hasUnclaimed = true;
+		buf += `<a class="button${notifying}" href="/view-help-tickets">and ${hiddenTicketCount} more Help ticket${Chat.plural(hiddenTicketCount)} (${hiddenTicketUnclaimedCount} unclaimed)</a>`;
 	}
 	buf = `|${hasUnclaimed ? 'uhtml' : 'uhtmlchange'}|latest-tickets|<div class="infobox" style="padding: 6px 4px">${buf}${count === 0 ? `There were open Help tickets, but they've all been closed now.` : ``}</div>`;
 	room.send(buf);
@@ -775,7 +789,7 @@ let commands = {
 				'Inappropriate Pokemon Nicknames': 'Please save a replay of the battle and put it in chat so global staff can check.',
 				'Timerstalling': 'Please place the link to the battle in chat so global staff can check.',
 			};
-			const introMessage = `<h2 style="margin-top:0">Help Ticket - ${user.name}</h2><p><b>Issue</b>: ${ticket.type}<br />${upper ? `An Upper` : `A Global`} Staff member will be with you shortly.</p>${contexts[target] ? `<p style="text-decoration: underline">${contexts[target]}</p>` : ``}`;
+			const introMessage = Chat.html`<h2 style="margin-top:0">Help Ticket - ${user.name}</h2><p><b>Issue</b>: ${ticket.type}<br />${upper ? `An Upper` : `A Global`} Staff member will be with you shortly.</p>${contexts[target] ? `<p style="text-decoration: underline">${contexts[target]}</p>` : ``}`;
 			const staffMessage = `${upper ? `<p><h3>Do not post sensitive information in this room.</h3>Drivers and moderators can access this room's logs via the log viewer; please PM the user instead.</p>` : ``}<p><button class="button" name="send" value="/helpticket close ${user.userid}">Close Ticket</button> <button class="button" name="send" value="/helpticket escalate ${user.userid}">Escalate</button> ${upper ? `` : `<button class="button" name="send" value="/helpticket escalate ${user.userid}, upperstaff">Escalate to Upper Staff</button>`} <button class="button" name="send" value="/helpticket ban ${user.userid}"><small>Ticketban</small></button></p>`;
 			let helpRoom = /** @type {ChatRoom?} */ (Rooms(`help-${user.userid}`));
 			if (!helpRoom) {
