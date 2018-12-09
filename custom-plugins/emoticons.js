@@ -18,6 +18,15 @@ try {
 	Server.ignoreEmotes = JSON.parse(FS(`config/ignoreemotes.json`).readIfExistsSync());
 } catch (e) {}
 
+function isEmoter(user) {
+	if (!user) return;
+	if (typeof user === "object") user = user.userid;
+	let dev = Db.emanager.get(toId(user));
+	if (dev === 1) return true;
+	return false;
+}
+Server.isEmoter = isEmoter;
+
 function loadEmoticons() {
 	try {
 		emoticons = JSON.parse(FS(`config/emoticons.json`).readIfExistsSync());
@@ -75,14 +84,14 @@ exports.commands = {
 	emotes: "emoticon",
 	emoticon: {
 		add: function (target, room, user) {
-			if (!this.can(`emotes`) && Db.emanager.has(user)) return false;
-			if (!target) return this.parse("/emoticonshelp");
+			if (!this.can(`emotes`) && !Server.isEmoter(user.userid)) return;
+			if (!target) return this.parse(`/emoticonshelp`);
 
-			let targetSplit = target.split(",");
+			let targetSplit = target.split(`,`);
 			for (let u in targetSplit) targetSplit[u] = targetSplit[u].trim();
 
-			if (!targetSplit[1]) return this.parse("/emoticonshelp");
-			if (targetSplit[0].length > 10) return this.errorReply("Emoticons may not be longer than 10 characters.");
+			if (!targetSplit[1]) return this.parse(`/emoticonshelp`);
+			if (targetSplit[0].length > 10) return this.errorReply(`Emoticons may not be longer than 10 characters.`);
 			if (emoticons[targetSplit[0]]) return this.errorReply(`${targetSplit[0]} is already an emoticon.`);
 
 			emoticons[targetSplit[0]] = targetSplit[1];
@@ -94,28 +103,28 @@ exports.commands = {
 			if (room.emoteSize) size = room.emoteSize;
 
 			this.sendReply(`|raw|The emoticon ${Chat.escapeHTML(targetSplit[0])} has been added: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
-			if (Rooms("upperstaff")) Rooms("upperstaff").add(`|raw|${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
+			if (Rooms(`upperstaff`)) Rooms(`upperstaff`).add(`|raw|${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
 		},
 
 		delete: "del",
 		remove: "del",
 		rem: "del",
 		del: function (target, room, user) {
-			if (!this.can(`emotes`) && Db.emanager.has(user)) return false;
-			if (!target) return this.parse("/emoticonshelp");
-			if (!emoticons[target]) return this.errorReply("That emoticon does not exist.");
+			if (!this.can(`emotes`) && !Server.isEmoter(user.userid)) return;
+			if (!target) return this.parse(`/emoticonshelp`);
+			if (!emoticons[target]) return this.errorReply(`That emoticon does not exist.`);
 			delete emoticons[target];
 			saveEmoticons();
-			this.sendReply("That emoticon has been removed.");
-			if (Rooms("upperstaff")) Rooms("upperstaff").add(`|raw|${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
+			this.sendReply(`That emoticon has been removed.`);
+			if (Rooms(`upperstaff`)) Rooms(`upperstaff`).add(`|raw|${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
 		},
 
 		addmanager: "am",
 		am: function (target, room, user) {
-			if (!this.can("emotes")) return false;
-			if (!target) return this.parse("/emoticonshelp");
+			if (!this.can(`emotes`)) return false;
+			if (!target) return this.parse(`/emoticonshelp`);
 			let manager = toId(target);
-			if (manager.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
+			if (manager.length > 18) return this.errorReply(`Usernames cannot exceed 18 characters.`);
 			Db.emanager.set(manager, 1);
 			this.sendReply(`${target} has been added as emoticons manager.`);
 			if (Users.get(manager)) Users(manager).popup(`|html|You have been added as emoticon manager by ${Server.nameColor(user.name, true)}.`);
@@ -123,11 +132,11 @@ exports.commands = {
 
 		removemanager: "rm",
 		rm: function (target, room, user) {
-			if (!this.can("emotes")) return false;
-			if (!target) return this.parse("/emoticonshelp");
+			if (!this.can(`emotes`)) return false;
+			if (!target) return this.parse(`/emoticonshelp`);
 			let manager = toId(target);
-			if (manager.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
-			if (Db.emanager.has(manager)) return this.errorReply(`${manager} is not a emoticon manager..`);
+			if (manager.length > 18) return this.errorReply(`Usernames cannot exceed 18 characters.`);
+			if (!isEmoter(manager)) return this.errorReply(`${target} isn't a emoticons manager.`);
 			Db.emanager.remove(manager);
 			this.sendReply(`${manager} has been removed as emoticons manager.`);
 			if (Users.get(manager)) Users(manager).popup(`|html|You have been removed as emoticons manager by ${Server.nameColor(user.name, true)}.`);
