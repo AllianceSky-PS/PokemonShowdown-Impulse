@@ -68,7 +68,7 @@ exports.commands = {
 			Config.customavatars[name] = name + ext;
 
 			downloadImage(avatarUrl, name, ext);
-			Ad('avatars').set('name', avatarUrl);
+			Ad('avatars').set(name, avatarUrl);
 			this.sendReply("|raw|" + name + "'s avatar was successfully set. Avatar:<br /><img src='" + avatarUrl + "' width='80' height='80'>");
 			Monitor.adminlog(name + "'s avatar was successfully set by " + user.name + "."); //no reason to show the avatar in upper staff
 			if (Users(name)) Users(name).popup("|html|" + Server.nameColor(user.name, true) + " set your custom avatar.<br /><center><img src='" + avatarUrl + "' width='80' height='80'></center><br /> Refresh your page if you don't see it.");
@@ -90,7 +90,7 @@ exports.commands = {
 				} else if (err) {
 					console.error(err);
 				}
-				Ad('avatars').delete('userid');
+				Ad('avatars').delete(userid);
 
 				if (Users(userid)) Users(userid).popup("|html|" + Server.nameColor(user.name, true) + " has deleted your custom avatar.");
 				this.sendReply(target + "'s avatar has been successfully removed.");
