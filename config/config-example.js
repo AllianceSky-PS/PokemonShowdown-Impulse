@@ -65,6 +65,7 @@ exports.wsdeflate = {
  *  The client requires port 443, so if you use a different port here,
  *  it will need to be forwarded to 443 through iptables rules or
  *  something.
+ * @type {{port: number, options: {key: string, cert: string}} | null}
  */
 exports.ssl = null;
 
@@ -443,7 +444,8 @@ exports.disablehotpatchall = false;
  *                  group and target group are both in jurisdiction.
  *     - room<rank>: /roompromote to <rank> (eg. roomvoice)
  *     - makeroom: Create/delete chatrooms, and set modjoin/roomdesc/privacy
- *     - editroom: Set modjoin/privacy only for battles/groupchats
+ *     - editroom: Editing properties of rooms
+ *     - editprivacy: Set modjoin/privacy only for battles
  *     - ban: Banning and unbanning.
  *     - mute: Muting and unmuting.
  *     - lock: locking (ipmute) and unlocking.
@@ -514,6 +516,7 @@ exports.grouplist = [
 		globalonly: true,
 		gamemanagement: true,
 		exportinputlog: true,
+		editprivacy: true,
 		hotpatch: true,
 		// Custom
 		customcolor: true,
@@ -524,36 +527,8 @@ exports.grouplist = [
 		icon: true,
 		customtitle: true,
 		profile: true,
+		emotes: true,
 	},
-	/**{
-		symbol: '^',
-		id: "captain",
-		name: "Captain",
-		inherit: '@',
-		jurisdiction: 'u',
-		globalonly: true,
-		declare: true,
-		gdeclare: true,
-		makeroom: true,
-		editroom: true,
-		roomowner: true,
-		roombot: true,
-		roommod: true,
-		roomdriver: true,
-		modchatall: true,
-		tourannouncements: true,
-		gamemanagement: true,
-		potd: true,
-		// Custom
-		draft: true,
-		masspm: true,
-		avatar: true,
-		economy: true,
-		emote: true,
-		psgo: true,
-		ssb: true,
-	},
-	*/
 	{
 		symbol: '#',
 		id: "owner",
@@ -592,9 +567,9 @@ exports.grouplist = [
 		roomvoice: true,
 		modchat: true,
 		roomonly: true,
-		editroom: true,
 		joinbattle: true,
 		nooverride: true,
+		editprivacy: true,
 	},
 	{
 		symbol: '*',
@@ -623,6 +598,7 @@ exports.grouplist = [
 		// Custom
 		news: true,
 		roomshop: true,
+		emotes: true,
 	},
 	{
 		symbol: '%',

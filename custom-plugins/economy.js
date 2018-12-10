@@ -85,7 +85,7 @@ global.rankLadder = function (title, type, array, prop, group) {
 	const ladderTitle = '<center><h4><u>' + title + '</u></h4></center>';
 	const thStyle = 'class="rankladder-headers default-td" style="background: -moz-linear-gradient(#576468, #323A3C); background: -webkit-linear-gradient(#576468, #323A3C); background: -o-linear-gradient(#576468, #323A3C); background: linear-gradient(#576468, #323A3C); box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.3) inset, 1px 1px 1px rgba(255, 255, 255, 0.7) inset;"';
 	const tableTop = '<div style="max-height: 310px; overflow-y: scroll;">' +
-		'<table style="width: 100%; border-collapse: collapse;">' +
+		'<table style="max-width: 100%; border-collapse: collapse;">' +
 		'<tr>' +
 			'<th ' + thStyle + '>Rank</th>' +
 			'<th ' + thStyle + '>' + groupHeader + '</th>' +
@@ -204,10 +204,9 @@ exports.commands = {
 		});
 	},
 
-	confirmtransferBucks: 'transfercurrency', //You can change "transferBucks" and "confirmtransferBucks" to your currency name for an alias that applies to your currency Example: AwesomeBucks could be "transferawesomebucks" and "confirmtransferawesomebucks"
-	transferBucks: 'transfercurrency',
-	confirmtransfercurrency: 'transfercurrency',
-	transfercurrency: function (target, room, user, connection, cmd) {
+	transferbucks: 'transfercurrency',
+	transfercurrency: 'transferbuck',
+	transferbuck: function (target, room, user, connection, cmd) {
 		if (!target) return this.sendReply("Usage: /" + cmd + " [user], [amount]");
 		let splitTarget = target.split(',');
 		for (let u in splitTarget) splitTarget[u] = splitTarget[u].trim();
@@ -292,7 +291,7 @@ exports.commands = {
 		this.sendReplyBox(rankLadder('Richest Users', currencyPlural, keys.slice(0, target), 'money') + '</div>');
 	},
 
-	resetBucks: 'resetmoney',
+	resetbucks: 'resetmoney',
 	resetmoney: function (target, room, user) {
 		if (!this.can('economy')) return false;
 		if (!target) return this.parse('/help resetmoney');
@@ -326,7 +325,7 @@ exports.commands = {
 
 	economy: 'economystats',
 	currency: 'economystats',
-	Bucks: 'economystats',
+	bucks: 'economystats',
 	economystats: function (target, room, user) {
 		if (!this.runBroadcast()) return;
 		const users = Db.currency.keys().map(curUser => ({amount: Db.currency.get(curUser)}));
