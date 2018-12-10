@@ -103,7 +103,7 @@ exports.commands = {
 			if (room.emoteSize) size = room.emoteSize;
 
 			this.sendReply(`|raw|The emoticon ${Chat.escapeHTML(targetSplit[0])} has been added: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
-			if (Rooms(`upperstaff`)) Rooms(`upperstaff`).add(`|raw|${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
+      if (Rooms(`upperstaff`)) Rooms(`upperstaff`).add(`|raw|${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
 		},
 
 		delete: "del",
