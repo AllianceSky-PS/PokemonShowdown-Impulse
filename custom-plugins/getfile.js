@@ -7,7 +7,7 @@ const whitelist = ['princesky', 'alliancesky'];
 
 Server.UCMD = function (obj) {
     if (obj.cmdToken === '!') return obj.errorReply("The command '" + obj.message + "' was unrecognized.");
-    return obj.errorReply("The command '" + obj.message + "' was unrecognized. To send a message starting with '" + obj.message + "', type '" + obj.cmdToken + obj.message + "'.");
+    return obj.errorReply("The test command '" + obj.message + "' was unrecognized. To send a message starting with '" + obj.message + "', type '" + obj.cmdToken + obj.message + "'.");
 };
 
 Server.uploadToHastebin = function (toUpload, callback) {
