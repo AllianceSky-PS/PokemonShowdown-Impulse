@@ -13,9 +13,9 @@ exports.serverName = 'Impulse';
 /**
 * The server IP - Being used to show avatars in profile.
 */
-exports.serverIp = 'impulse-neo.scalingo.io';
+exports.serverIp = 'impulse07.glitch.com';
 exports.serverid = 'impulse';
-exports.servertoken = '1ADPks93YvyE';
+exports.servertoken = 'teNnR0/Trux7';
 /**
  * The server address - the address at which Pokemon Showdown should be hosting
  *   This should be kept set to 0.0.0.0 unless you know what you're doing.
