@@ -92,6 +92,11 @@ if (Config.watchconfig) {
 	});
 }
 
+const http = require("http");
+setInterval(function() {
+    http.get("http://impulse07.glitch.com");
+}, 180000); // every 3 minutes (180000)
+
 /*********************************************************
  * Set up most of our globals
  *********************************************************/
